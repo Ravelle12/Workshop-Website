@@ -1,0 +1,47 @@
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Apply animations */
+.hero-content {
+    animation: slideUp 0.8s ease-out;
+}
+
+.hero-stats {
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+.service-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.gallery-item {
+    animation: fadeIn 0.8s ease-out;
+}
