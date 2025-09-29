@@ -50,27 +50,36 @@
             color: var(--text-light);
             text-decoration: none;
             border-radius: 4px;
-            transition: all 0.3s;
-            font-size: 14px;
-            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .sidebar-menu a:hover,
         .sidebar-menu a.active {
-            background: var(--accent);
+            background: var(--secondary);
             color: white;
         }
 
         .sidebar-menu .icon {
             font-size: 18px;
+            width: 20px;
+            text-align: center;
         }
 
-        /* Main Content Area */
+        /* Main Content */
         .main-content {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--border);
+            border-radius: 8px;
             padding: 30px;
             min-height: 80vh;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         .page-header {
@@ -79,189 +88,50 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .page-header h2 {
-            font-size: 32px;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            color: var(--accent);
+            margin: 0;
+            font-size: 24px;
         }
 
-        /* Tab Content Sections */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Quick Stats Grid */
-        .quick-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--accent);
-            padding: 20px;
-            text-align: center;
-        }
-
-        .stat-card .value {
-            font-size: 36px;
-            font-weight: 900;
-            color: var(--gold);
-            margin-bottom: 8px;
-        }
-
-        .stat-card .label {
-            color: var(--text-light);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .stat-card.danger { border-left-color: #dc3545; }
-        .stat-card.success { border-left-color: #28a745; }
-        .stat-card.warning { border-left-color: #ffc107; }
-        .stat-card.info { border-left-color: #17a2b8; }
-
-        /* Job Cards Table */
-        .jobs-table {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--border);
-            overflow-x: auto;
-            margin-top: 20px;
-        }
-
-        .jobs-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .jobs-table th {
-            background: var(--secondary);
-            padding: 12px;
-            text-align: left;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .jobs-table td {
-            padding: 12px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-light);
-            font-size: 13px;
-        }
-
-        .jobs-table tr:hover {
-            background: rgba(255,255,255,0.05);
-        }
-
-        /* Status Badges */
-        .status-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .status-waiting { background: #ffc107; color: #000; }
-        .status-parts { background: #dc3545; color: #fff; }
-        .status-progress { background: #17a2b8; color: #fff; }
-        .status-completed { background: #28a745; color: #fff; }
-        .status-delivered { background: #6c757d; color: #fff; }
-
-        /* Action Buttons */
-        .action-btn {
-            padding: 6px 12px;
-            border: none;
-            background: var(--secondary);
-            color: white;
-            cursor: pointer;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-right: 5px;
-            transition: all 0.3s;
-        }
-
-        .action-btn:hover {
-            background: var(--accent);
-        }
-
-        .action-btn.primary { background: var(--accent); }
-        .action-btn.success { background: #28a745; }
-        .action-btn.danger { background: #dc3545; }
-
-        /* Forms */
+        /* Form Sections */
         .form-section {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--border);
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-
-        .form-section h3 {
-            color: var(--white);
-            margin-bottom: 20px;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
         }
 
         .form-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-bottom: 20px;
         }
 
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
         .form-group label {
-            display: block;
             color: var(--text-light);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            font-weight: 600;
+            margin-bottom: 5px;
+            font-weight: 500;
         }
 
         .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
+        .form-group select {
             padding: 12px;
-            background: rgba(255,255,255,0.05);
             border: 1px solid var(--border);
-            color: white;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.05);
+            color: var(--text-light);
             font-size: 14px;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: rgba(255,255,255,0.08);
         }
 
         /* Workers Grid */
@@ -269,66 +139,21 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
-            margin-top: 20px;
         }
 
         .worker-card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.03);
             border: 1px solid var(--border);
+            border-radius: 8px;
             padding: 20px;
             text-align: center;
             position: relative;
+            transition: all 0.3s ease;
         }
 
-        .worker-card .avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            margin: 0 auto 15px;
-        }
-
-        .worker-card h4 {
-            color: var(--white);
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .worker-card .role {
-            color: var(--text-light);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .worker-card .stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid var(--border);
-        }
-
-        .worker-card .stats div {
-            text-align: center;
-        }
-
-        .worker-card .stats .value {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--gold);
-        }
-
-        .worker-card .stats .label {
-            font-size: 10px;
-            color: var(--text-light);
-            text-transform: uppercase;
+        .worker-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .worker-card .remove-btn {
@@ -338,76 +163,189 @@
             background: #dc3545;
             color: white;
             border: none;
-            width: 30px;
-            height: 30px;
             border-radius: 50%;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
-            font-size: 18px;
-        }
-
-        /* Charts Placeholder */
-        .chart-container {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--border);
-            padding: 20px;
-            margin-bottom: 20px;
-            min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 14px;
+        }
+
+        .worker-card .avatar {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .worker-card h4 {
+            color: var(--accent);
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .worker-card .role {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .worker-card .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .worker-card .stats .value {
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .worker-card .stats .label {
+            color: var(--text-light);
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* Action Buttons */
+        .action-btn {
+            background: var(--border);
+            color: var(--text-light);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .action-btn.primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .action-btn.primary:hover {
+            background: #c8102e;
+        }
+
+        /* Overview Grid */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-card .icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card .value {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table th {
+            background: rgba(255,255,255,0.05);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .data-table td {
             color: var(--text-light);
         }
 
+        .data-table tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* Status badges */
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background: #ffc107;
+            color: #000;
+        }
+
+        .status-progress {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .status-completed {
+            background: #28a745;
+            color: white;
+        }
+
         /* Responsive */
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .dashboard-layout {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
-
+            
             .sidebar {
                 position: static;
             }
-        }
-
-        /* View Switcher Button Styling */
-        .view-switcher-btn {
-            background: linear-gradient(135deg, var(--secondary), var(--accent)) !important;
-            color: white !important;
-            font-weight: 700 !important;
-            border: 2px solid var(--accent) !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .view-switcher-btn:hover {
-            background: linear-gradient(135deg, var(--accent), #A00D26) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 5px 15px rgba(200, 16, 46, 0.4) !important;
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .workers-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Authentication Check -->
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            const isLoggedIn = sessionStorage.getItem('adminLoggedIn');
-            if (isLoggedIn !== 'true') {
-                window.location.href = 'login.html';
-            } else {
-                const username = sessionStorage.getItem('adminUsername') || 'Admin';
-                document.getElementById('adminUsername').textContent = username;
-            }
-        });
-
-        function adminLogout() {
-            if (confirm('⚠️ Are you sure you want to logout?')) {
-                sessionStorage.clear();
-                alert('✅ Logged out successfully.');
-                window.location.href = 'login.html';
-            }
-        }
-    </script>
-
-    <!-- Top Navigation -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">NU <span>TECH</span> WORKSHOP</div>
         <ul class="nav-links">
@@ -416,30 +354,22 @@
             <li style="color: var(--text-light);">👤 <span id="adminUsername">Admin</span></li>
         </ul>
         <div style="display: flex; gap: 10px; align-items: center;">
-            <button class="admin-btn view-switcher-btn" onclick="window.location.href='admin.html'" style="padding: 10px 20px; border: none; cursor: pointer; color: white; font-weight: 600; text-transform: uppercase;">
-                📋 Simple View
-            </button>
-            <button class="admin-btn logout" onclick="adminLogout()" style="background: #6c757d; padding: 10px 20px; border: none; cursor: pointer; color: white; font-weight: 600; text-transform: uppercase;">
-                🚪 Logout
-            </button>
+            <button class="admin-btn view-switcher-btn" onclick="window.location.href='admin.html'" style="padding: 10px 20px;">📋 Simple View</button>
+            <button class="admin-btn logout" onclick="adminLogout()" style="background: #6c757d; padding: 10px 20px;">🚪 Logout</button>
         </div>
     </nav>
 
     <div class="dashboard-container">
-        <!-- Dashboard Layout -->
         <div class="dashboard-layout">
-            <!-- Sidebar Menu -->
             <aside class="sidebar">
                 <ul class="sidebar-menu">
-                    <li><a href="#" class="active" onclick="showTab('overview')"><span class="icon">📊</span> Overview</a></li>
-                    <li><a href="#" onclick="showTab('jobcards')"><span class="icon">🔧</span> Job Cards</a></li>
-                    <li><a href="#" onclick="showTab('workers')"><span class="icon">👷</span> Workers</a></li>
-                    <li><a href="#" onclick="showTab('parts')"><span class="icon">📦</span> Parts Management</a></li>
-                    <li><a href="#" onclick="showTab('enquiries')"><span class="icon">📋</span> Enquiries</a></li>
-                    <li><a href="#" onclick="showTab('insights')"><span class="icon">📈</span> Business Insights</a></li>
-                    <li><a href="#" onclick="showTab('settings')"><span class="icon">⚙️</span> Settings</a></li>
-                    
-                    <!-- View Switcher -->
+                    <li><a href="#" class="active" onclick="showTab('overview', event)"><span class="icon">📊</span> Overview</a></li>
+                    <li><a href="#" onclick="showTab('jobcards', event)"><span class="icon">🔧</span> Job Cards</a></li>
+                    <li><a href="#" onclick="showTab('workers', event)"><span class="icon">👷</span> Workers</a></li>
+                    <li><a href="#" onclick="showTab('parts', event)"><span class="icon">📦</span> Parts Management</a></li>
+                    <li><a href="#" onclick="showTab('enquiries', event)"><span class="icon">📋</span> Enquiries</a></li>
+                    <li><a href="#" onclick="showTab('insights', event)"><span class="icon">📈</span> Business Insights</a></li>
+                    <li><a href="#" onclick="showTab('settings', event)"><span class="icon">⚙️</span> Settings</a></li>
                     <li style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
                         <a href="admin.html" style="background: var(--secondary); border-radius: 4px;"><span class="icon">📋</span> Switch to Simple View</a>
                     </li>
@@ -449,85 +379,25 @@
                 </ul>
             </aside>
 
-            <!-- Main Content -->
             <main class="main-content">
-                <!-- OVERVIEW TAB -->
+                <!-- Overview Tab -->
                 <div id="overview" class="tab-content active">
                     <div class="page-header">
-                        <h2>📊 Workshop Overview</h2>
-                        <button class="action-btn primary" onclick="showTab('jobcards')">+ New Job Card</button>
+                        <h2>📊 Dashboard Overview</h2>
+                        <button class="action-btn primary" onclick="exportAllData()">📊 Export All Data</button>
                     </div>
-
-                    <div class="quick-stats">
-                        <div class="stat-card warning">
-                            <div class="value" id="jobsInProgress">0</div>
-                            <div class="label">Jobs In Progress</div>
-                        </div>
-                        <div class="stat-card danger">
-                            <div class="value" id="waitingParts">0</div>
-                            <div class="label">Waiting for Parts</div>
-                        </div>
-                        <div class="stat-card success">
-                            <div class="value" id="completedToday">0</div>
-                            <div class="label">Completed Today</div>
-                        </div>
-                        <div class="stat-card info">
-                            <div class="value" id="activeWorkers">6</div>
-                            <div class="label">Active Workers</div>
-                        </div>
-                    </div>
-
-                    <h3 style="color: var(--white); margin: 30px 0 15px;">Quick Actions</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px;">
-                        <button class="action-btn primary" onclick="showTab('jobcards'); showNewJobForm();" style="padding: 15px; font-size: 14px;">
-                            + New Job Card
-                        </button>
-                        <button class="action-btn" onclick="showTab('parts'); orderParts();" style="padding: 15px; font-size: 14px;">
-                            📦 Order Parts
-                        </button>
-                        <button class="action-btn success" onclick="showTab('enquiries'); loadEnquiries();" style="padding: 15px; font-size: 14px;">
-                            👥 View Enquiries
-                        </button>
-                        <button class="action-btn" onclick="exportAllData();" style="padding: 15px; font-size: 14px;">
-                            📥 Export Data
-                        </button>
-                    </div>
-
-                    <h3 style="color: var(--white); margin: 30px 0 15px;">Today's Jobs</h3>
-                    <div class="jobs-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Job #</th>
-                                    <th>Vehicle</th>
-                                    <th>Customer</th>
-                                    <th>Assigned To</th>
-                                    <th>Status</th>
-                                    <th>Time</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="todaysJobsTable">
-                                <tr>
-                                    <td colspan="7" style="text-align: center; padding: 40px; color: var(--text-light);">
-                                        No jobs scheduled for today. Create a new job card to get started.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div class="overview-grid" id="overviewGrid"></div>
                 </div>
 
-                <!-- JOB CARDS TAB -->
+                <!-- Job Cards Tab -->
                 <div id="jobcards" class="tab-content">
                     <div class="page-header">
-                        <h2>🔧 Job Cards</h2>
-                        <button class="action-btn primary" onclick="showNewJobForm()">+ Create New Job</button>
+                        <h2>🔧 Job Cards Management</h2>
+                        <button class="action-btn primary" onclick="showAddJobForm()">+ New Job Card</button>
                     </div>
-
-                    <div id="newJobForm" class="form-section" style="display: none;">
+                    <div id="addJobForm" class="form-section" style="display: none;">
                         <h3>Create New Job Card</h3>
-                        <form id="jobCardForm">
+                        <form id="jobForm">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Customer Name *</label>
@@ -538,100 +408,41 @@
                                     <input type="tel" name="customerPhone" required>
                                 </div>
                             </div>
-
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label>Vehicle Make *</label>
-                                    <input type="text" name="vehicleMake" required>
+                                    <label>Vehicle Details *</label>
+                                    <input type="text" name="vehicleDetails" placeholder="e.g., 2020 VW Golf GTI" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Vehicle Model *</label>
-                                    <input type="text" name="vehicleModel" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Registration *</label>
-                                    <input type="text" name="registration" required>
+                                    <label>Service Required *</label>
+                                    <input type="text" name="serviceRequired" required>
                                 </div>
                             </div>
-
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label>Service Type *</label>
-                                    <select name="serviceType" required>
-                                        <option value="">Select service</option>
-                                        <option value="general">General Service</option>
-                                        <option value="diagnostics">Diagnostics</option>
-                                        <option value="engine">Engine Rebuild</option>
-                                        <option value="transmission">Transmission</option>
-                                        <option value="brakes">Brakes</option>
-                                        <option value="electrical">Electrical</option>
-                                        <option value="other">Other</option>
+                                    <label>Assigned Worker</label>
+                                    <select name="assignedWorker" id="workerSelect">
+                                        <option value="">Select Worker</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Assign To *</label>
-                                    <select name="assignedWorker" id="workerSelect" required>
-                                        <option value="">Select worker</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Estimated Hours *</label>
-                                    <input type="number" name="estimatedHours" min="0.5" step="0.5" required>
+                                    <label>Estimated Hours</label>
+                                    <input type="number" name="estimatedHours" step="0.5" min="0.5">
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label>Job Description *</label>
-                                <textarea name="jobDescription" rows="4" required></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Parts Needed (one per line)</label>
-                                <textarea name="partsNeeded" rows="4" placeholder="e.g.
-                                Oil Filter - VW Part#123456
-                                Brake Pads - Audi Part#789012"></textarea>
-                            </div>
-
-                            <button type="submit" class="action-btn primary" style="padding: 12px 30px; font-size: 14px;">Create Job Card</button>
-                            <button type="button" class="action-btn" onclick="hideNewJobForm()" style="padding: 12px 30px; font-size: 14px;">Cancel</button>
+                            <button type="submit" class="action-btn primary" style="padding: 12px 30px;">Create Job Card</button>
+                            <button type="button" class="action-btn" onclick="hideAddJobForm()" style="padding: 12px 30px;">Cancel</button>
                         </form>
                     </div>
-
-                    <h3 style="color: var(--white); margin: 30px 0 15px;">All Job Cards</h3>
-                    <div class="jobs-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Job #</th>
-                                    <th>Date</th>
-                                    <th>Vehicle</th>
-                                    <th>Customer</th>
-                                    <th>Service</th>
-                                    <th>Assigned To</th>
-                                    <th>Status</th>
-                                    <th>Est. Time</th>
-                                    <th>Actual Time</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="allJobsTable">
-                                <tr>
-                                    <td colspan="10" style="text-align: center; padding: 40px; color: var(--text-light);">
-                                        No job cards yet. Click "Create New Job" to start.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div id="jobCardsTable"></div>
                 </div>
 
-                <!-- WORKERS TAB -->
+                <!-- Workers Tab -->
                 <div id="workers" class="tab-content">
                     <div class="page-header">
                         <h2>👷 Workers Management</h2>
                         <button class="action-btn primary" onclick="showAddWorkerForm()">+ Add Worker</button>
                     </div>
-
                     <div id="addWorkerForm" class="form-section" style="display: none;">
                         <h3>Add New Worker</h3>
                         <form id="workerForm">
@@ -653,255 +464,93 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="action-btn primary" style="padding: 12px 30px; font-size: 14px;">Add Worker</button>
-                            <button type="button" class="action-btn" onclick="hideAddWorkerForm()" style="padding: 12px 30px; font-size: 14px;">Cancel</button>
+                            <button type="submit" class="action-btn primary" style="padding: 12px 30px;">Add Worker</button>
+                            <button type="button" class="action-btn" onclick="hideAddWorkerForm()" style="padding: 12px 30px;">Cancel</button>
                         </form>
                     </div>
-
-                    <div class="workers-grid" id="workersGrid">
-                        <!-- Workers will be dynamically added here -->
-                    </div>
+                    <div class="workers-grid" id="workersGrid"></div>
                 </div>
 
-                <!-- PARTS MANAGEMENT TAB -->
+                <!-- Parts Tab -->
                 <div id="parts" class="tab-content">
                     <div class="page-header">
                         <h2>📦 Parts Management</h2>
-                        <div>
-                            <button class="action-btn primary" onclick="orderParts()">📋 Generate Parts Order List</button>
-                            <button class="action-btn" onclick="addManualPart()">+ Add Part Manually</button>
-                        </div>
+                        <button class="action-btn primary" onclick="showAddPartForm()">+ Add Part</button>
                     </div>
-
-                    <div class="quick-stats">
-                        <div class="stat-card danger">
-                            <div class="value" id="partsToOrder">0</div>
-                            <div class="label">Parts to Order</div>
-                        </div>
-                        <div class="stat-card warning">
-                            <div class="value" id="partsOrdered">0</div>
-                            <div class="label">Parts Ordered</div>
-                        </div>
-                        <div class="stat-card success">
-                            <div class="value" id="partsReceived">0</div>
-                            <div class="label">Parts Received</div>
-                        </div>
+                    <div id="addPartForm" class="form-section" style="display: none;">
+                        <h3>Add New Part</h3>
+                        <form id="partForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Part Name *</label>
+                                    <input type="text" name="partName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Part Number *</label>
+                                    <input type="text" name="partNumber" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Price (R) *</label>
+                                    <input type="number" name="partPrice" step="0.01" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Stock Quantity *</label>
+                                    <input type="number" name="stockQuantity" min="0" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="action-btn primary" style="padding: 12px 30px;">Add Part</button>
+                            <button type="button" class="action-btn" onclick="hideAddPartForm()" style="padding: 12px 30px;">Cancel</button>
+                        </form>
                     </div>
-
-                    <h3 style="color: var(--white); margin: 30px 0 15px;">Parts Tracking</h3>
-                    <div class="jobs-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Part Description</th>
-                                    <th>Part Number</th>
-                                    <th>Job #</th>
-                                    <th>Vehicle</th>
-                                    <th>Status</th>
-                                    <th>Ordered Date</th>
-                                    <th>Expected Date</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="partsTable">
-                                <tr>
-                                    <td colspan="8" style="text-align: center; padding: 40px; color: var(--text-light);">
-                                        No parts orders yet.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div id="partsTable"></div>
                 </div>
 
-                <!-- ENQUIRIES TAB -->
+                <!-- Enquiries Tab -->
                 <div id="enquiries" class="tab-content">
                     <div class="page-header">
                         <h2>📋 Customer Enquiries</h2>
-                        <button class="action-btn primary" onclick="downloadMasterEnquiries()">📥 Download Excel</button>
+                        <button class="action-btn primary" onclick="downloadEnquiries()">📥 Download Excel</button>
                     </div>
-
-                    <div class="quick-stats">
-                        <div class="stat-card warning">
-                            <div class="value" id="newEnquiries">0</div>
-                            <div class="label">New Enquiries</div>
-                        </div>
-                        <div class="stat-card info">
-                            <div class="value" id="contactedEnquiries">0</div>
-                            <div class="label">Contacted</div>
-                        </div>
-                        <div class="stat-card success">
-                            <div class="value" id="convertedEnquiries">0</div>
-                            <div class="label">Converted to Jobs</div>
-                        </div>
-                    </div>
-
-                    <input type="text" id="searchEnquiries" placeholder="🔍 Search enquiries..." style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white; margin-bottom: 20px;">
-
-                    <div class="jobs-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Enquiry ID</th>
-                                    <th>Date</th>
-                                    <th>Customer</th>
-                                    <th>Phone</th>
-                                    <th>Vehicle</th>
-                                    <th>Service</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="enquiriesTable">
-                                <tr>
-                                    <td colspan="8" style="text-align: center; padding: 40px; color: var(--text-light);">
-                                        No enquiries yet.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div id="enquiriesTable"></div>
                 </div>
 
-                <!-- BUSINESS INSIGHTS TAB -->
+                <!-- Insights Tab -->
                 <div id="insights" class="tab-content">
                     <div class="page-header">
                         <h2>📈 Business Insights</h2>
-                        <select style="padding: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white;">
-                            <option>This Week</option>
-                            <option>This Month</option>
-                            <option>This Year</option>
-                        </select>
                     </div>
-
-                    <div class="quick-stats">
-                        <div class="stat-card success">
-                            <div class="value">R <span id="totalRevenue">0</span></div>
-                            <div class="label">Total Revenue</div>
-                        </div>
-                        <div class="stat-card info">
-                            <div class="value"><span id="avgJobTime">0</span>h</div>
-                            <div class="label">Avg Job Time</div>
-                        </div>
-                        <div class="stat-card warning">
-                            <div class="value"><span id="efficiency">0</span>%</div>
-                            <div class="label">Workshop Efficiency</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="value"><span id="totalJobs">0</span></div>
-                            <div class="label">Jobs Completed</div>
-                        </div>
-                    </div>
-
-                    <h3 style="color: var(--white); margin: 30px 0 15px;">Performance Charts</h3>
-                    
-                    <div class="chart-container">
-                        <p>📊 Job Completion Trends Chart (Coming Soon)</p>
-                    </div>
-
-                    <div class="chart-container">
-                        <p>⏱️ Estimated vs Actual Time Analysis (Coming Soon)</p>
-                    </div>
-
-                    <h3 style="color: var(--white); margin: 30px 0 15px;">Key Metrics</h3>
-                    <div class="jobs-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Worker</th>
-                                    <th>Jobs Completed</th>
-                                    <th>Avg Time per Job</th>
-                                    <th>Efficiency Rating</th>
-                                    <th>Revenue Generated</th>
-                                </tr>
-                            </thead>
-                            <tbody id="workerMetricsTable">
-                                <tr>
-                                    <td colspan="5" style="text-align: center; padding: 40px; color: var(--text-light);">
-                                        No data available yet. Complete some jobs to see insights.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div id="insightsContent"></div>
                 </div>
 
-                <!-- SETTINGS TAB -->
+                <!-- Settings Tab -->
                 <div id="settings" class="tab-content">
                     <div class="page-header">
                         <h2>⚙️ Settings</h2>
                     </div>
-
                     <div class="form-section">
-                        <h3>Workshop Settings</h3>
+                        <h3>Workshop Configuration</h3>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Workshop Name</label>
-                                <input type="text" value="Nu Tech Auto Clinic">
+                                <input type="text" value="Nu Tech Auto Clinic" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Contact Number</label>
-                                <input type="tel" value="+27 XX XXX XXXX">
+                                <input type="text" value="+27 11 123 4567" readonly>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Standard Labour Rate (per hour)</label>
-                                <input type="number" id="labourRate" value="650">
+                                <label>Email</label>
+                                <input type="email" value="info@nutechautoclinic.co.za" readonly>
                             </div>
                             <div class="form-group">
-                                <label>Workshop Hours</label>
-                                <input type="text" value="Mon-Fri: 7:30-17:30, Sat: 8:00-13:00">
+                                <label>Operating Hours</label>
+                                <input type="text" value="Mon-Fri: 7:30-17:00, Sat: 8:00-13:00" readonly>
                             </div>
                         </div>
-
-                        <h3 style="margin-top: 30px;">Service Time Standards (VW/Audi System)</h3>
-                        <div class="jobs-table">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Service Type</th>
-                                        <th>Standard Time (hours)</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>General Service</td>
-                                        <td><input type="number" value="2" step="0.5" style="width: 80px; padding: 5px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white;"></td>
-                                        <td><button class="action-btn">Update</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Engine Diagnostics</td>
-                                        <td><input type="number" value="1.5" step="0.5" style="width: 80px; padding: 5px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white;"></td>
-                                        <td><button class="action-btn">Update</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Engine Rebuild</td>
-                                        <td><input type="number" value="24" step="0.5" style="width: 80px; padding: 5px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white;"></td>
-                                        <td><button class="action-btn">Update</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Transmission Repair</td>
-                                        <td><input type="number" value="8" step="0.5" style="width: 80px; padding: 5px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white;"></td>
-                                        <td><button class="action-btn">Update</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Brake Service</td>
-                                        <td><input type="number" value="3" step="0.5" style="width: 80px; padding: 5px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white;"></td>
-                                        <td><button class="action-btn">Update</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <button class="action-btn success" style="margin-top: 20px; padding: 12px 30px; font-size: 14px;">Save Settings</button>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>Data Management</h3>
-                        <button class="action-btn" onclick="exportAllData()">📥 Export All Data</button>
-                        <button class="action-btn danger" onclick="clearOldData()">🗑️ Clear Old Jobs (90+ days)</button>
                     </div>
                 </div>
             </main>
@@ -913,9 +562,8 @@
     <script src="js/contact-form.js"></script>
     <script src="js/notifications.js"></script>
 
-    <!-- Dashboard Scripts -->
     <script>
-        // Initialize data structures
+        // Data structures
         let jobCards = JSON.parse(localStorage.getItem('jobCards')) || [];
         let workers = JSON.parse(localStorage.getItem('workers')) || [
             { id: 1, name: 'Thabo Mkhize', role: 'Master Technician', jobsCompleted: 0, totalHours: 0 },
@@ -928,294 +576,77 @@
         let parts = JSON.parse(localStorage.getItem('parts')) || [];
         let enquiriesData = JSON.parse(localStorage.getItem('nutechEnquiries')) || [];
 
-        // Tab Navigation with error handling
-        function showTab(tabName) {
-            try {
-                // Hide all tabs
-                document.querySelectorAll('.tab-content').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                
-                // Remove active class from all menu items
-                document.querySelectorAll('.sidebar-menu a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                
-                // Show selected tab
-                const targetTab = document.getElementById(tabName);
-                if (targetTab) {
-                    targetTab.classList.add('active');
-                }
-                
-                // Add active class to clicked menu item
-                if (event && event.target) {
-                    event.target.classList.add('active');
-                }
-                
-                // Load data for specific tabs
-                if (tabName === 'overview') loadOverview();
-                if (tabName === 'jobcards') loadJobCards();
-                if (tabName === 'workers') loadWorkers();
-                if (tabName === 'parts') loadParts();
-                if (tabName === 'enquiries') loadEnquiries();
-                if (tabName === 'insights') loadInsights();
-                
-                console.log(`Switched to tab: ${tabName}`);
-            } catch (error) {
-                console.error('Error switching tabs:', error);
-                alert('Error switching tabs. Please refresh the page.');
+        // Single DOMContentLoaded handler
+        window.addEventListener('DOMContentLoaded', function() {
+            // Auth check
+            const isLoggedIn = sessionStorage.getItem('adminLoggedIn');
+            if (isLoggedIn !== 'true') {
+                window.location.href = 'login.html';
+                return;
             }
-        }
+            // Username display
+            const username = sessionStorage.getItem('adminUsername') || 'Admin';
+            const adminUsernameElem = document.getElementById('adminUsername');
+            if (adminUsernameElem) adminUsernameElem.textContent = username;
 
-        // Load Overview Dashboard
-        function loadOverview() {
-            const today = new Date().toLocaleDateString();
-            const todaysJobs = jobCards.filter(job => job.date === today);
-            const inProgress = jobCards.filter(job => job.status === 'In Progress').length;
-            const waitingParts = jobCards.filter(job => job.status === 'Waiting for Parts').length;
-            const completedToday = todaysJobs.filter(job => job.status === 'Completed').length;
-
-            document.getElementById('jobsInProgress').textContent = inProgress;
-            document.getElementById('waitingParts').textContent = waitingParts;
-            document.getElementById('completedToday').textContent = completedToday;
-            document.getElementById('activeWorkers').textContent = workers.length;
-
-            // Load today's jobs table
-            const tbody = document.getElementById('todaysJobsTable');
-            if (todaysJobs.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px; color: var(--text-light);">No jobs scheduled for today.</td></tr>';
-            } else {
-                tbody.innerHTML = todaysJobs.map(job => `
-                    <tr>
-                        <td style="font-weight: 700; color: var(--gold);">${job.jobNumber}</td>
-                        <td>${job.vehicleMake} ${job.vehicleModel}</td>
-                        <td>${job.customerName}</td>
-                        <td>${job.assignedWorker}</td>
-                        <td><span class="status-badge status-${job.status.toLowerCase().replace(' ', '')}">${job.status}</span></td>
-                        <td>${job.actualHours || 0}h / ${job.estimatedHours}h</td>
-                        <td>
-                            <button class="action-btn" onclick="updateJobStatus('${job.jobNumber}')">Update</button>
-                            <button class="action-btn" onclick="viewJobDetails('${job.jobNumber}')">View</button>
-                            <button class="action-btn" onclick="printJobCard('${job.jobNumber}')">🖨️ Print</button>
-                        </td>
-                    </tr>
-                `).join('');
-            }
-        }
-
-        // Job Card Functions
-        function showNewJobForm() {
-            document.getElementById('newJobForm').style.display = 'block';
-            loadWorkersToSelect();
-        }
-
-        function hideNewJobForm() {
-            document.getElementById('newJobForm').style.display = 'none';
-            document.getElementById('jobCardForm').reset();
-        }
-
-        function loadWorkersToSelect() {
-            const select = document.getElementById('workerSelect');
-            select.innerHTML = '<option value="">Select worker</option>' + 
-                workers.map(w => `<option value="${w.name}">${w.name} (${w.role})</option>`).join('');
-        }
-
-        document.getElementById('jobCardForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const jobNumber = 'JOB-' + Date.now();
-            
-            const newJob = {
-                jobNumber: jobNumber,
-                date: new Date().toLocaleDateString(),
-                time: new Date().toLocaleTimeString(),
-                customerName: formData.get('customerName'),
-                customerPhone: formData.get('customerPhone'),
-                vehicleMake: formData.get('vehicleMake'),
-                vehicleModel: formData.get('vehicleModel'),
-                registration: formData.get('registration'),
-                serviceType: formData.get('serviceType'),
-                assignedWorker: formData.get('assignedWorker'),
-                estimatedHours: parseFloat(formData.get('estimatedHours')),
-                actualHours: 0,
-                jobDescription: formData.get('jobDescription'),
-                partsNeeded: formData.get('partsNeeded'),
-                status: 'In Progress',
-                startTime: new Date().toISOString()
-            };
-
-            jobCards.push(newJob);
-            localStorage.setItem('jobCards', JSON.stringify(jobCards));
-
-            // Process parts if any
-            if (newJob.partsNeeded) {
-                const partsList = newJob.partsNeeded.split('\n').filter(p => p.trim());
-                partsList.forEach(part => {
-                    parts.push({
-                        partId: 'PART-' + Date.now() + Math.random(),
-                        jobNumber: jobNumber,
-                        description: part,
-                        vehicle: `${newJob.vehicleMake} ${newJob.vehicleModel}`,
-                        status: 'To Order',
-                        orderedDate: null,
-                        expectedDate: null
-                    });
-                });
-                localStorage.setItem('parts', JSON.stringify(parts));
-            }
-
-            alert(`✅ Job Card ${jobNumber} created successfully!`);
-            hideNewJobForm();
-            loadJobCards();
+            // Init dashboard
             loadOverview();
+            loadWorkers();
+            loadWorkersToSelect();
+            loadEnquiries();
+            loadParts();
         });
 
-        function loadJobCards() {
-            const tbody = document.getElementById('allJobsTable');
-            if (jobCards.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="10" style="text-align: center; padding: 40px; color: var(--text-light);">No job cards yet.</td></tr>';
-            } else {
-                tbody.innerHTML = jobCards.map(job => `
-                    <tr>
-                        <td style="font-weight: 700; color: var(--gold);">${job.jobNumber}</td>
-                        <td>${job.date}</td>
-                        <td>${job.vehicleMake} ${job.vehicleModel}<br><small style="color: var(--text-light);">${job.registration}</small></td>
-                        <td>${job.customerName}<br><small style="color: var(--text-light);">${job.customerPhone}</small></td>
-                        <td>${job.serviceType}</td>
-                        <td>${job.assignedWorker}</td>
-                        <td><span class="status-badge status-${job.status.toLowerCase().replace(' ', '')}">${job.status}</span></td>
-                        <td>${job.estimatedHours}h</td>
-                        <td>${job.actualHours}h</td>
-                        <td>
-                            <button class="action-btn" onclick="updateJobStatus('${job.jobNumber}')">Update</button>
-                            <button class="action-btn" onclick="viewJobDetails('${job.jobNumber}')">Details</button>
-                            <button class="action-btn" onclick="printJobCard('${job.jobNumber}')">🖨️ Print</button>
-                        </td>
-                    </tr>
-                `).join('');
+        function adminLogout() {
+            if (confirm('⚠️ Are you sure you want to logout?')) {
+                sessionStorage.clear();
+                alert('✅ Logged out successfully.');
+                window.location.href = 'login.html';
             }
         }
 
-        function updateJobStatus(jobNumber) {
-            const job = jobCards.find(j => j.jobNumber === jobNumber);
-            if (!job) return;
+        // Tab Navigation
+        function showTab(tabName, evt) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.sidebar-menu a').forEach(link => link.classList.remove('active'));
+            const targetTab = document.getElementById(tabName);
+            if (targetTab) targetTab.classList.add('active');
+            if (evt && evt.target) evt.target.classList.add('active');
 
-            const newStatus = prompt(`Update status for ${jobNumber}:\n\n1. In Progress\n2. Waiting for Parts\n3. Completed\n4. Delivered\n\nEnter number (1-4):`, '1');
-            
-            const statuses = ['In Progress', 'Waiting for Parts', 'Completed', 'Delivered'];
-            const statusIndex = parseInt(newStatus) - 1;
-            
-            if (statusIndex >= 0 && statusIndex < statuses.length) {
-                job.status = statuses[statusIndex];
-                
-                if (job.status === 'Completed' && !job.actualHours) {
-                    const hours = prompt(`Enter actual hours taken for this job:`, job.estimatedHours);
-                    job.actualHours = parseFloat(hours) || job.estimatedHours;
-                    
-                    // Update worker stats
-                    const worker = workers.find(w => w.name === job.assignedWorker);
-                    if (worker) {
-                        worker.jobsCompleted++;
-                        worker.totalHours += job.actualHours;
-                        localStorage.setItem('workers', JSON.stringify(workers));
-                    }
-                }
-                
-                localStorage.setItem('jobCards', JSON.stringify(jobCards));
-                alert(`✅ Status updated to: ${job.status}`);
-                loadJobCards();
-                loadOverview();
-            }
+            if (tabName === 'overview') loadOverview();
+            if (tabName === 'jobcards') loadJobCards();
+            if (tabName === 'workers') loadWorkers();
+            if (tabName === 'parts') loadParts();
+            if (tabName === 'enquiries') loadEnquiries();
+            if (tabName === 'insights') loadInsights();
         }
 
-        function viewJobDetails(jobNumber) {
-            const job = jobCards.find(j => j.jobNumber === jobNumber);
-            if (!job) return;
-
-            alert(`JOB DETAILS\n\nJob #: ${job.jobNumber}\nCustomer: ${job.customerName}\nVehicle: ${job.vehicleMake} ${job.vehicleModel} (${job.registration})\nService: ${job.serviceType}\nAssigned: ${job.assignedWorker}\nStatus: ${job.status}\nEstimated: ${job.estimatedHours}h\nActual: ${job.actualHours}h\n\nDescription:\n${job.jobDescription}\n\nParts Needed:\n${job.partsNeeded || 'None'}`);
+        // WORKERS MANAGEMENT
+        function loadWorkers() {
+            const grid = document.getElementById('workersGrid');
+            grid.innerHTML = workers.map(worker => {
+                const avgTime = worker.jobsCompleted > 0 ? (worker.totalHours / worker.jobsCompleted).toFixed(1) : 0;
+                return `
+                    <div class="worker-card">
+                        <button class="remove-btn" onclick="removeWorker(${worker.id})">×</button>
+                        <div class="avatar">👷</div>
+                        <h4>${worker.name}</h4>
+                        <div class="role">${worker.role}</div>
+                        <div class="stats">
+                            <div>
+                                <div class="value">${worker.jobsCompleted}</div>
+                                <div class="label">Jobs Done</div>
+                            </div>
+                            <div>
+                                <div class="value">${avgTime}h</div>
+                                <div class="label">Avg Time</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
         }
 
-        function printJobCard(jobNumber) {
-            const job = jobCards.find(j => j.jobNumber === jobNumber);
-            if (!job) return;
-
-            const printWindow = window.open('', '_blank');
-            const htmlContent = 
-                '<html>' +
-                '<head>' +
-                    '<title>Job Card - ' + job.jobNumber + '</title>' +
-                    '<style>' +
-                        'body { font-family: Arial; padding: 20px; }' +
-                        '.header { text-align: center; border-bottom: 3px solid #C8102E; padding-bottom: 20px; margin-bottom: 20px; }' +
-                        '.section { margin-bottom: 20px; }' +
-                        '.label { font-weight: bold; display: inline-block; width: 150px; }' +
-                        'table { width: 100%; border-collapse: collapse; margin-top: 10px; }' +
-                        'th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }' +
-                        'th { background: #0A1F44; color: white; }' +
-                    '</style>' +
-                '</head>' +
-                '<body>' +
-                    '<div class="header">' +
-                        '<h1>NU TECH AUTO CLINIC</h1>' +
-                        '<p>RMI Approved Workshop</p>' +
-                    '</div>' +
-                    '<div class="section">' +
-                        '<h2>Job Card: ' + job.jobNumber + '</h2>' +
-                        '<p><span class="label">Date:</span> ' + job.date + '</p>' +
-                        '<p><span class="label">Customer:</span> ' + job.customerName + '</p>' +
-                        '<p><span class="label">Phone:</span> ' + job.customerPhone + '</p>' +
-                    '</div>' +
-                    '<div class="section">' +
-                        '<h3>Vehicle Information</h3>' +
-                        '<p><span class="label">Make & Model:</span> ' + job.vehicleMake + ' ' + job.vehicleModel + '</p>' +
-                        '<p><span class="label">Registration:</span> ' + job.registration + '</p>' +
-                    '</div>' +
-                    '<div class="section">' +
-                        '<h3>Service Details</h3>' +
-                        '<p><span class="label">Service Type:</span> ' + job.serviceType + '</p>' +
-                        '<p><span class="label">Assigned To:</span> ' + job.assignedWorker + '</p>' +
-                        '<p><span class="label">Description:</span></p>' +
-                        '<p>' + job.jobDescription + '</p>' +
-                    '</div>' +
-                    '<div class="section">' +
-                        '<h3>Time & Costing</h3>' +
-                        '<table>' +
-                            '<tr>' +
-                                '<th>Estimated Hours</th>' +
-                                '<th>Actual Hours</th>' +
-                                '<th>Labour Rate</th>' +
-                                '<th>Total Labour</th>' +
-                            '</tr>' +
-                            '<tr>' +
-                                '<td>' + job.estimatedHours + 'h</td>' +
-                                '<td>' + (job.actualHours || '-') + 'h</td>' +
-                                '<td>R 650/h</td>' +
-                                '<td>R ' + ((job.actualHours || job.estimatedHours) * 650) + '</td>' +
-                            '</tr>' +
-                        '</table>' +
-                    '</div>' +
-                    '<div class="section">' +
-                        '<h3>Parts Required</h3>' +
-                        '<pre>' + (job.partsNeeded || 'None') + '</pre>' +
-                    '</div>' +
-                    '<div class="section">' +
-                        '<p><span class="label">Status:</span> <strong>' + job.status + '</strong></p>' +
-                    '</div>' +
-                    '<div class="section" style="margin-top: 50px; border-top: 1px solid #ddd; padding-top: 20px;">' +
-                        '<p>Customer Signature: ______________________ Date: __________</p>' +
-                    '</div>' +
-                    '<script>' +
-                        'window.print();' +
-                        'window.onafterprint = function() { window.close(); };' +
-                    '<\/script>' +
-                '</body>' +
-                '</html>';
-            
-            printWindow.document.write(htmlContent);
-        }
-
-        // Workers Management
         function showAddWorkerForm() {
             document.getElementById('addWorkerForm').style.display = 'block';
         }
@@ -1227,7 +658,6 @@
 
         document.getElementById('workerForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const formData = new FormData(this);
             const newWorker = {
                 id: Date.now(),
@@ -1236,37 +666,13 @@
                 jobsCompleted: 0,
                 totalHours: 0
             };
-
             workers.push(newWorker);
             localStorage.setItem('workers', JSON.stringify(workers));
-
             alert(`✅ Worker ${newWorker.name} added successfully!`);
             hideAddWorkerForm();
             loadWorkers();
+            loadWorkersToSelect();
         });
-
-        function loadWorkers() {
-            const grid = document.getElementById('workersGrid');
-            grid.innerHTML = workers.map(worker => {
-                const avgTime = worker.jobsCompleted > 0 ? (worker.totalHours / worker.jobsCompleted).toFixed(1) : 0;
-                return '<div class="worker-card">' +
-                    '<button class="remove-btn" onclick="removeWorker(' + worker.id + ')">×</button>' +
-                    '<div class="avatar">👷</div>' +
-                    '<h4>' + worker.name + '</h4>' +
-                    '<div class="role">' + worker.role + '</div>' +
-                    '<div class="stats">' +
-                        '<div>' +
-                            '<div class="value">' + worker.jobsCompleted + '</div>' +
-                            '<div class="label">Jobs Done</div>' +
-                        '</div>' +
-                        '<div>' +
-                            '<div class="value">' + avgTime + 'h</div>' +
-                            '<div class="label">Avg Time</div>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>';
-            }).join('');
-        }
 
         function removeWorker(workerId) {
             if (confirm('⚠️ Remove this worker? This cannot be undone.')) {
@@ -1274,391 +680,411 @@
                 localStorage.setItem('workers', JSON.stringify(workers));
                 alert('✅ Worker removed.');
                 loadWorkers();
+                loadWorkersToSelect();
             }
         }
 
-        // Parts Management
-        function loadParts() {
-            const toOrder = parts.filter(p => p.status === 'To Order').length;
-            const ordered = parts.filter(p => p.status === 'Ordered').length;
-            const received = parts.filter(p => p.status === 'Received').length;
-
-            document.getElementById('partsToOrder').textContent = toOrder;
-            document.getElementById('partsOrdered').textContent = ordered;
-            document.getElementById('partsReceived').textContent = received;
-
-            const tbody = document.getElementById('partsTable');
-            if (parts.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 40px; color: var(--text-light);">No parts orders yet.</td></tr>';
-            } else {
-                tbody.innerHTML = parts.map(part => `
-                    <tr>
-                        <td>${part.description}</td>
-                        <td>${part.partNumber || 'N/A'}</td>
-                        <td>${part.jobNumber}</td>
-                        <td>${part.vehicle}</td>
-                        <td><span class="status-badge status-${part.status.toLowerCase().replace(' ', '')}">${part.status}</span></td>
-                        <td>${part.orderedDate || '-'}</td>
-                        <td>${part.expectedDate || '-'}</td>
-                        <td>
-                            <button class="action-btn" onclick="updatePartStatus('${part.partId}')">Update</button>
-                        </td>
-                    </tr>
-                `).join('');
+        function loadWorkersToSelect() {
+            const select = document.getElementById('workerSelect');
+            if (select) {
+                select.innerHTML = '<option value="">Select Worker</option>' + 
+                    workers.map(worker => `<option value="${worker.id}">${worker.name} - ${worker.role}</option>`).join('');
             }
         }
 
-        function updatePartStatus(partId) {
-            const part = parts.find(p => p.partId === partId);
-            if (!part) return;
+        // OVERVIEW DASHBOARD
+        function loadOverview() {
+            const grid = document.getElementById('overviewGrid');
+            const totalJobs = jobCards.length;
+            const completedJobs = jobCards.filter(job => job.status === 'Completed').length;
+            const pendingJobs = jobCards.filter(job => job.status === 'Pending').length;
+            const inProgressJobs = jobCards.filter(job => job.status === 'In Progress').length;
 
-            const newStatus = prompt(`Update status for part:\n\n1. To Order\n2. Ordered\n3. Received\n\nEnter number (1-3):`, '1');
+            grid.innerHTML = `
+                <div class="stat-card">
+                    <div class="icon">📋</div>
+                    <div class="value">${totalJobs}</div>
+                    <div class="label">Total Job Cards</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">✅</div>
+                    <div class="value">${completedJobs}</div>
+                    <div class="label">Completed Jobs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">⏳</div>
+                    <div class="value">${pendingJobs}</div>
+                    <div class="label">Pending Jobs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">🔧</div>
+                    <div class="value">${inProgressJobs}</div>
+                    <div class="label">In Progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">👷</div>
+                    <div class="value">${workers.length}</div>
+                    <div class="label">Total Workers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">📦</div>
+                    <div class="value">${parts.length}</div>
+                    <div class="label">Parts in Stock</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">📧</div>
+                    <div class="value">${enquiriesData.length}</div>
+                    <div class="label">Customer Enquiries</div>
+                </div>
+            `;
+        }
+
+        // JOB CARDS MANAGEMENT
+        function loadJobCards() {
+            const table = document.getElementById('jobCardsTable');
+            if (jobCards.length === 0) {
+                table.innerHTML = '<p style="text-align: center; color: var(--text-light); padding: 40px;">No job cards created yet. Click "New Job Card" to get started.</p>';
+                return;
+            }
+
+            table.innerHTML = `
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Job #</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Vehicle</th>
+                            <th>Service</th>
+                            <th>Assigned To</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${jobCards.map(job => {
+                            const worker = workers.find(w => w.id == job.assignedWorker);
+                            const workerName = worker ? worker.name : 'Unassigned';
+                            return `
+                                <tr>
+                                    <td>JC${job.id}</td>
+                                    <td>${job.date}</td>
+                                    <td>${job.customerName}<br><small>${job.customerPhone}</small></td>
+                                    <td>${job.vehicleDetails}</td>
+                                    <td>${job.serviceRequired}</td>
+                                    <td>${workerName}</td>
+                                    <td><span class="status-badge status-${job.status.toLowerCase().replace(' ', '')}">${job.status}</span></td>
+                                    <td>
+                                        <button class="action-btn" onclick="updateJobStatus(${job.id})">Update</button>
+                                        <button class="action-btn" onclick="deleteJob(${job.id})" style="background: #dc3545;">Delete</button>
+                                    </td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function showAddJobForm() {
+            document.getElementById('addJobForm').style.display = 'block';
+            loadWorkersToSelect();
+        }
+
+        function hideAddJobForm() {
+            document.getElementById('addJobForm').style.display = 'none';
+            document.getElementById('jobForm').reset();
+        }
+
+        document.getElementById('jobForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const newJob = {
+                id: Date.now(),
+                date: new Date().toLocaleDateString(),
+                customerName: formData.get('customerName'),
+                customerPhone: formData.get('customerPhone'),
+                vehicleDetails: formData.get('vehicleDetails'),
+                serviceRequired: formData.get('serviceRequired'),
+                assignedWorker: formData.get('assignedWorker'),
+                estimatedHours: parseFloat(formData.get('estimatedHours')) || 0,
+                actualHours: 0,
+                status: 'Pending'
+            };
+            jobCards.push(newJob);
+            localStorage.setItem('jobCards', JSON.stringify(jobCards));
+            alert(`✅ Job Card JC${newJob.id} created successfully!`);
+            hideAddJobForm();
+            loadJobCards();
+            loadOverview();
+        });
+
+        function updateJobStatus(jobId) {
+            const job = jobCards.find(j => j.id === jobId);
+            if (!job) return;
+
+            const newStatus = prompt('Update job status:\n1. Pending\n2. In Progress\n3. Completed\n\nEnter choice (1-3):', '1');
+            const statusMap = { '1': 'Pending', '2': 'In Progress', '3': 'Completed' };
             
-            const statuses = ['To Order', 'Ordered', 'Received'];
-            const statusIndex = parseInt(newStatus) - 1;
-            
-            if (statusIndex >= 0 && statusIndex < statuses.length) {
-                part.status = statuses[statusIndex];
+            if (statusMap[newStatus]) {
+                job.status = statusMap[newStatus];
                 
-                if (part.status === 'Ordered' && !part.orderedDate) {
-                    part.orderedDate = new Date().toLocaleDateString();
-                    const days = prompt('Expected delivery in how many days?', '3');
-                    const expectedDate = new Date();
-                    expectedDate.setDate(expectedDate.getDate() + parseInt(days));
-                    part.expectedDate = expectedDate.toLocaleDateString();
+                if (newStatus === '3') {
+                    const actualHours = prompt('Enter actual hours worked:', job.estimatedHours);
+                    if (actualHours && !isNaN(actualHours)) {
+                        job.actualHours = parseFloat(actualHours);
+                        
+                        // Update worker stats
+                        const worker = workers.find(w => w.id == job.assignedWorker);
+                        if (worker) {
+                            worker.jobsCompleted++;
+                            worker.totalHours += job.actualHours;
+                            localStorage.setItem('workers', JSON.stringify(workers));
+                        }
+                    }
                 }
                 
+                localStorage.setItem('jobCards', JSON.stringify(jobCards));
+                alert('✅ Job status updated!');
+                loadJobCards();
+                loadOverview();
+            }
+        }
+
+        function deleteJob(jobId) {
+            if (confirm('⚠️ Delete this job card? This cannot be undone.')) {
+                jobCards = jobCards.filter(j => j.id !== jobId);
+                localStorage.setItem('jobCards', JSON.stringify(jobCards));
+                alert('✅ Job card deleted.');
+                loadJobCards();
+                loadOverview();
+            }
+        }
+
+        // PARTS MANAGEMENT
+        function loadParts() {
+            const table = document.getElementById('partsTable');
+            if (parts.length === 0) {
+                table.innerHTML = '<p style="text-align: center; color: var(--text-light); padding: 40px;">No parts in inventory. Click "Add Part" to get started.</p>';
+                return;
+            }
+
+            table.innerHTML = `
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Part Name</th>
+                            <th>Part Number</th>
+                            <th>Price (R)</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${parts.map(part => {
+                            const stockStatus = part.stockQuantity === 0 ? 'Out of Stock' : 
+                                              part.stockQuantity < 5 ? 'Low Stock' : 'In Stock';
+                            const statusClass = stockStatus === 'Out of Stock' ? 'status-pending' :
+                                              stockStatus === 'Low Stock' ? 'status-progress' : 'status-completed';
+                            
+                            return `
+                                <tr>
+                                    <td>${part.partName}</td>
+                                    <td>${part.partNumber}</td>
+                                    <td>R${part.partPrice.toFixed(2)}</td>
+                                    <td>${part.stockQuantity}</td>
+                                    <td><span class="status-badge ${statusClass}">${stockStatus}</span></td>
+                                    <td>
+                                        <button class="action-btn" onclick="updateStock(${part.id})">Update Stock</button>
+                                        <button class="action-btn" onclick="deletePart(${part.id})" style="background: #dc3545;">Delete</button>
+                                    </td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function showAddPartForm() {
+            document.getElementById('addPartForm').style.display = 'block';
+        }
+
+        function hideAddPartForm() {
+            document.getElementById('addPartForm').style.display = 'none';
+            document.getElementById('partForm').reset();
+        }
+
+        document.getElementById('partForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const newPart = {
+                id: Date.now(),
+                partName: formData.get('partName'),
+                partNumber: formData.get('partNumber'),
+                partPrice: parseFloat(formData.get('partPrice')),
+                stockQuantity: parseInt(formData.get('stockQuantity'))
+            };
+            parts.push(newPart);
+            localStorage.setItem('parts', JSON.stringify(parts));
+            alert(`✅ Part ${newPart.partName} added successfully!`);
+            hideAddPartForm();
+            loadParts();
+            loadOverview();
+        });
+
+        function updateStock(partId) {
+            const part = parts.find(p => p.id === partId);
+            if (!part) return;
+
+            const newStock = prompt(`Update stock quantity for ${part.partName}:`, part.stockQuantity);
+            if (newStock !== null && !isNaN(newStock) && newStock >= 0) {
+                part.stockQuantity = parseInt(newStock);
                 localStorage.setItem('parts', JSON.stringify(parts));
-                alert(`✅ Part status updated!`);
+                alert('✅ Stock updated!');
                 loadParts();
             }
         }
 
-        function addManualPart() {
-            const description = prompt('Enter part description:');
-            if (!description) return;
-
-            const partNumber = prompt('Enter part number (optional):') || 'TBD';
-            const jobNumber = prompt('Enter job number (optional):') || 'MANUAL';
-            const vehicle = prompt('Enter vehicle make/model:') || 'General';
-
-            const newPart = {
-                partId: 'PART-' + Date.now(),
-                description: description,
-                partNumber: partNumber,
-                jobNumber: jobNumber,
-                vehicle: vehicle,
-                status: 'To Order',
-                orderedDate: null,
-                expectedDate: null,
-                addedBy: 'Manual Entry'
-            };
-
-            parts.push(newPart);
-            localStorage.setItem('parts', JSON.stringify(parts));
-
-            alert(`✅ Part "${description}" added successfully!`);
-            loadParts();
-        }
-
-        function orderParts() {
-            const toOrder = parts.filter(p => p.status === 'To Order');
-            if (toOrder.length === 0) {
-                alert('No parts to order. Add some parts from job cards or manually first.');
-                return;
+        function deletePart(partId) {
+            if (confirm('⚠️ Delete this part? This cannot be undone.')) {
+                parts = parts.filter(p => p.id !== partId);
+                localStorage.setItem('parts', JSON.stringify(parts));
+                alert('✅ Part deleted.');
+                loadParts();
+                loadOverview();
             }
-
-            // Create parts order list
-            const wb = XLSX.utils.book_new();
-            const ws_data = [
-                ['PARTS ORDER LIST - ' + new Date().toLocaleDateString()],
-                [],
-                ['Part Description', 'Part Number', 'Job Number', 'Vehicle', 'Supplier', 'Qty', 'Price', 'Notes']
-            ];
-
-            toOrder.forEach(part => {
-                ws_data.push([
-                    part.description,
-                    part.partNumber || 'TO BE CONFIRMED',
-                    part.jobNumber,
-                    part.vehicle,
-                    '', // Supplier to be filled
-                    '1', // Quantity
-                    '', // Price
-                    part.addedBy || ''  // Notes
-                ]);
-            });
-
-            const ws = XLSX.utils.aoa_to_sheet(ws_data);
-            ws['!cols'] = [
-                { wch: 40 },
-                { wch: 20 },
-                { wch: 15 },
-                { wch: 25 },
-                { wch: 20 },
-                { wch: 8 },
-                { wch: 12 },
-                { wch: 30 }
-            ];
-
-            XLSX.utils.book_append_sheet(wb, ws, 'Parts Order');
-            XLSX.writeFile(wb, `Parts_Order_${Date.now()}.xlsx`);
-
-            alert(`✅ Parts order list downloaded!\n${toOrder.length} parts to order.`);
         }
 
-        // Enquiries - Load from localStorage
+        // ENQUIRIES MANAGEMENT
         function loadEnquiries() {
-            // Load enquiries from localStorage (same as contact form)
-            const savedEnquiries = localStorage.getItem('nutechEnquiries');
-            if (savedEnquiries) {
-                enquiriesData = JSON.parse(savedEnquiries);
-            }
-
-            const newCount = enquiriesData.filter(e => e.status === 'New').length;
-            const contactedCount = enquiriesData.filter(e => e.status === 'Contacted').length;
-            const convertedCount = enquiriesData.filter(e => e.status === 'Converted').length;
-
-            document.getElementById('newEnquiries').textContent = newCount;
-            document.getElementById('contactedEnquiries').textContent = contactedCount;
-            document.getElementById('convertedEnquiries').textContent = convertedCount;
-
-            const tbody = document.getElementById('enquiriesTable');
+            const table = document.getElementById('enquiriesTable');
             if (enquiriesData.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 40px; color: var(--text-light);">No enquiries yet.</td></tr>';
-            } else {
-                tbody.innerHTML = enquiriesData.slice().reverse().map(enq => `
-                    <tr>
-                        <td style="font-weight: 700; color: var(--gold);">${enq.enquiryId}</td>
-                        <td>${enq.date} ${enq.time}</td>
-                        <td>${enq.firstName} ${enq.lastName}<br><small style="color: var(--text-light);">${enq.email}</small></td>
-                        <td><a href="tel:${enq.phone}" style="color: var(--gold);">${enq.phone}</a></td>
-                        <td>${enq.vehicleMake} ${enq.vehicleModel}</td>
-                        <td>${enq.serviceType}</td>
-                        <td><span class="status-badge status-${enq.status.toLowerCase().replace(' ', '')}">${enq.status}</span></td>
-                        <td>
-                            <button class="action-btn" onclick="convertToJob('${enq.enquiryId}')">→ Job</button>
-                            <button class="action-btn" onclick="updateEnquiryStatus('${enq.enquiryId}', 'Contacted')">✓ Called</button>
-                            <button class="action-btn" onclick="viewEnquiryDetails('${enq.enquiryId}')">👁️ View</button>
-                            ${enq.regPlateImage && enq.regPlateImage !== 'No image uploaded' ? 
-                                `<button class="action-btn" onclick="viewRegPlateImage('${enq.enquiryId}')">📷</button>` : ''}
-                        </td>
-                    </tr>
-                `).join('');
-            }
-        }
-
-        function convertToJob(enquiryId) {
-            const enq = enquiriesData.find(e => e.enquiryId === enquiryId);
-            if (!enq) return;
-
-            if (confirm(`Convert enquiry ${enquiryId} to job card?`)) {
-                // Pre-fill job card form
-                showTab('jobcards');
-                showNewJobForm();
-                
-                document.querySelector('[name="customerName"]').value = `${enq.firstName} ${enq.lastName}`;
-                document.querySelector('[name="customerPhone"]').value = enq.phone;
-                document.querySelector('[name="vehicleMake"]').value = enq.vehicleMake;
-                document.querySelector('[name="vehicleModel"]').value = enq.vehicleModel;
-                document.querySelector('[name="jobDescription"]').value = enq.message;
-
-                // Update enquiry status
-                enq.status = 'Converted';
-                localStorage.setItem('nutechEnquiries', JSON.stringify(enquiriesData));
-                
-                // Refresh enquiries display
-                loadEnquiries();
-            }
-        }
-
-        function viewEnquiryDetails(enquiryId) {
-            const enq = enquiriesData.find(e => e.enquiryId === enquiryId);
-            if (!enq) return;
-
-            alert(`ENQUIRY DETAILS\n\nID: ${enq.enquiryId}\nDate: ${enq.date} ${enq.time}\n\nCustomer: ${enq.firstName} ${enq.lastName}\nPhone: ${enq.phone}\nEmail: ${enq.email}\n\nVehicle: ${enq.vehicleMake} ${enq.vehicleModel}\nService: ${enq.serviceType}\n\nMessage:\n${enq.message}\n\nStatus: ${enq.status}`);
-        }
-
-        function updateEnquiryStatus(enquiryId, newStatus) {
-            const enq = enquiriesData.find(e => e.enquiryId === enquiryId);
-            if (!enq) return;
-
-            enq.status = newStatus;
-            localStorage.setItem('nutechEnquiries', JSON.stringify(enquiriesData));
-            
-            alert(`✅ Enquiry ${enquiryId} marked as ${newStatus}`);
-            loadEnquiries();
-        }
-
-        // Business Insights
-        function loadInsights() {
-            const completed = jobCards.filter(j => j.status === 'Completed');
-            const totalRevenue = completed.reduce((sum, job) => {
-                const labourRate = 650; // Per hour
-                return sum + (job.actualHours * labourRate);
-            }, 0);
-
-            const totalActualHours = completed.reduce((sum, job) => sum + job.actualHours, 0);
-            const totalEstimatedHours = completed.reduce((sum, job) => sum + job.estimatedHours, 0);
-            const efficiency = totalEstimatedHours > 0 ? ((totalEstimatedHours / totalActualHours) * 100).toFixed(0) : 0;
-            const avgJobTime = completed.length > 0 ? (totalActualHours / completed.length).toFixed(1) : 0;
-
-            document.getElementById('totalRevenue').textContent = totalRevenue.toLocaleString();
-            document.getElementById('avgJobTime').textContent = avgJobTime;
-            document.getElementById('efficiency').textContent = efficiency;
-            document.getElementById('totalJobs').textContent = completed.length;
-
-            // Worker metrics
-            const tbody = document.getElementById('workerMetricsTable');
-            if (workers.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 40px; color: var(--text-light);">No data available yet.</td></tr>';
-            } else {
-                tbody.innerHTML = workers.map(worker => {
-                    const workerJobs = completed.filter(j => j.assignedWorker === worker.name);
-                    const workerRevenue = workerJobs.reduce((sum, job) => sum + (job.actualHours * 650), 0);
-                    const avgTime = worker.jobsCompleted > 0 ? (worker.totalHours / worker.jobsCompleted).toFixed(1) : 0;
-                    const workerEfficiency = workerJobs.length > 0 ? 
-                        ((workerJobs.reduce((s, j) => s + j.estimatedHours, 0) / worker.totalHours) * 100).toFixed(0) : 0;
-
-                    const efficiencyColor = workerEfficiency > 80 ? '#28a745' : workerEfficiency > 60 ? '#ffc107' : '#dc3545';
-
-                    return '<tr>' +
-                        '<td style="font-weight: 700; color: var(--white);">' + worker.name + '</td>' +
-                        '<td>' + worker.jobsCompleted + '</td>' +
-                        '<td>' + avgTime + 'h</td>' +
-                        '<td><span style="color: ' + efficiencyColor + '; font-weight: 700;">' + workerEfficiency + '%</span></td>' +
-                        '<td style="color: var(--gold); font-weight: 700;">R ' + workerRevenue.toLocaleString() + '</td>' +
-                        '</tr>';
-                }).join('');
-            }
-        }
-
-        // View registration plate image function
-        function viewRegPlateImage(enquiryId) {
-            const enquiry = enquiriesData.find(e => e.enquiryId === enquiryId);
-            if (enquiry && enquiry.regPlateImage !== 'No image uploaded') {
-                const newWindow = window.open('', '_blank');
-                newWindow.document.write(`
-                    <html>
-                    <head>
-                        <title>Registration Plate - ${enquiryId}</title>
-                        <style>
-                            body { 
-                                margin: 0; 
-                                display: flex; 
-                                justify-content: center; 
-                                align-items: center; 
-                                min-height: 100vh; 
-                                background: #1a1a1a;
-                                font-family: Arial, sans-serif;
-                            }
-                            .container {
-                                text-align: center;
-                                padding: 20px;
-                            }
-                            h2 { color: white; margin-bottom: 20px; }
-                            img { 
-                                max-width: 90vw; 
-                                max-height: 80vh; 
-                                border: 3px solid #C8102E;
-                                border-radius: 8px;
-                            }
-                            .info {
-                                color: #ccc;
-                                margin-top: 15px;
-                                font-size: 14px;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <div class="container">
-                            <h2>Registration Plate Image</h2>
-                            <img src="${enquiry.regPlateImage}" alt="Registration Plate">
-                            <div class="info">
-                                <p><strong>Enquiry ID:</strong> ${enquiry.enquiryId}</p>
-                                <p><strong>Customer:</strong> ${enquiry.firstName} ${enquiry.lastName}</p>
-                                <p><strong>Vehicle:</strong> ${enquiry.vehicleMake} ${enquiry.vehicleModel}</p>
-                            </div>
-                        </div>
-                    </body>
-                    </html>
-                `);
-            } else {
-                alert('No registration plate image available for this enquiry.');
-            }
-        }
-
-        // Admin enquiry download function
-        function downloadMasterEnquiries() {
-            if (enquiriesData.length === 0) {
-                alert('No enquiries to export yet.');
+                table.innerHTML = '<p style="text-align: center; color: var(--text-light); padding: 40px;">No customer enquiries yet.</p>';
                 return;
             }
-            
-            // Create Excel workbook
+
+            table.innerHTML = `
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Service</th>
+                            <th>Message</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${enquiriesData.map((enquiry, index) => `
+                            <tr>
+                                <td>${enquiry.date || 'N/A'}</td>
+                                <td>${enquiry.name}</td>
+                                <td>${enquiry.email}</td>
+                                <td>${enquiry.phone}</td>
+                                <td>${enquiry.service}</td>
+                                <td>${enquiry.message.substring(0, 50)}${enquiry.message.length > 50 ? '...' : ''}</td>
+                                <td>
+                                    <button class="action-btn" onclick="viewEnquiry(${index})">View</button>
+                                    <button class="action-btn" onclick="deleteEnquiry(${index})" style="background: #dc3545;">Delete</button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function viewEnquiry(index) {
+            const enquiry = enquiriesData[index];
+            alert(`📧 Enquiry Details:\n\nName: ${enquiry.name}\nEmail: ${enquiry.email}\nPhone: ${enquiry.phone}\nService: ${enquiry.service}\n\nMessage:\n${enquiry.message}`);
+        }
+
+        function deleteEnquiry(index) {
+            if (confirm('⚠️ Delete this enquiry?')) {
+                enquiriesData.splice(index, 1);
+                localStorage.setItem('nutechEnquiries', JSON.stringify(enquiriesData));
+                alert('✅ Enquiry deleted.');
+                loadEnquiries();
+                loadOverview();
+            }
+        }
+
+        function downloadEnquiries() {
+            if (enquiriesData.length === 0) {
+                alert('⚠️ No enquiries to download.');
+                return;
+            }
+
+            const ws = XLSX.utils.json_to_sheet(enquiriesData);
             const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Customer Enquiries');
             
-            const ws_data = [
-                ['ENQUIRY ID', 'DATE', 'TIME', 'FIRST NAME', 'LAST NAME', 'PHONE', 'EMAIL', 'VEHICLE MAKE', 'VEHICLE MODEL', 'SERVICE TYPE', 'MESSAGE', 'REG PLATE IMAGE', 'STATUS']
-            ];
-            
-            enquiriesData.forEach(enquiry => {
-                ws_data.push([
-                    enquiry.enquiryId,
-                    enquiry.date,
-                    enquiry.time,
-                    enquiry.firstName,
-                    enquiry.lastName,
-                    enquiry.phone,
-                    enquiry.email,
-                    enquiry.vehicleMake,
-                    enquiry.vehicleModel,
-                    enquiry.serviceType,
-                    enquiry.message,
-                    enquiry.regPlateImage !== 'No image uploaded' ? 'IMAGE UPLOADED ✓' : 'No image',
-                    enquiry.status
-                ]);
-            });
-
-            // Convert to worksheet
-            const ws = XLSX.utils.aoa_to_sheet(ws_data);
-            
-            // Set column widths
-            ws['!cols'] = [
-                { wch: 16 },  // Enquiry ID
-                { wch: 12 },  // Date
-                { wch: 10 },  // Time
-                { wch: 15 },  // First Name
-                { wch: 15 },  // Last Name
-                { wch: 15 },  // Phone
-                { wch: 30 },  // Email
-                { wch: 15 },  // Vehicle Make
-                { wch: 18 },  // Vehicle Model
-                { wch: 20 },  // Service Type
-                { wch: 45 },  // Message
-                { wch: 18 },  // Reg Plate
-                { wch: 12 }   // Status
-            ];
-
-            XLSX.utils.book_append_sheet(wb, ws, 'All Enquiries');
-            
-            const today = new Date().toISOString().split('T')[0];
-            const fileName = `NuTech_Admin_Enquiries_${today}.xlsx`;
-            
+            const fileName = `customer-enquiries-${new Date().toISOString().split('T')[0]}.xlsx`;
             XLSX.writeFile(wb, fileName);
             alert(`✅ Downloaded ${enquiriesData.length} enquiries to ${fileName}`);
         }
 
-        // Initialize
-        window.addEventListener('DOMContentLoaded', function() {
-            loadOverview();
-            loadWorkers();
-            loadWorkersToSelect();
-            loadEnquiries(); // Load enquiries on dashboard load
-            loadParts(); // Load parts on dashboard load
-        });
+        // BUSINESS INSIGHTS
+        function loadInsights() {
+            const content = document.getElementById('insightsContent');
+            const totalRevenue = jobCards.filter(job => job.status === 'Completed')
+                .reduce((sum, job) => sum + (job.actualHours * 450), 0); // R450/hour rate
+            
+            const avgJobTime = jobCards.filter(job => job.actualHours > 0)
+                .reduce((sum, job, _, arr) => sum + job.actualHours / arr.length, 0);
 
-        // Export all data
+            content.innerHTML = `
+                <div class="overview-grid">
+                    <div class="stat-card">
+                        <div class="icon">💰</div>
+                        <div class="value">R${totalRevenue.toLocaleString()}</div>
+                        <div class="label">Total Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">⏱️</div>
+                        <div class="value">${avgJobTime.toFixed(1)}h</div>
+                        <div class="label">Avg Job Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">📈</div>
+                        <div class="value">${(jobCards.filter(job => job.status === 'Completed').length / Math.max(jobCards.length, 1) * 100).toFixed(1)}%</div>
+                        <div class="label">Completion Rate</div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Top Performing Workers</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Worker</th>
+                                <th>Jobs Completed</th>
+                                <th>Total Hours</th>
+                                <th>Avg Hours/Job</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${workers
+                                .filter(worker => worker.jobsCompleted > 0)
+                                .sort((a, b) => b.jobsCompleted - a.jobsCompleted)
+                                .map(worker => `
+                                    <tr>
+                                        <td>${worker.name}</td>
+                                        <td>${worker.jobsCompleted}</td>
+                                        <td>${worker.totalHours.toFixed(1)}h</td>
+                                        <td>${(worker.totalHours / worker.jobsCompleted).toFixed(1)}h</td>
+                                    </tr>
+                                `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // EXPORT ALL DATA
         function exportAllData() {
             const wb = XLSX.utils.book_new();
 
@@ -1667,53 +1093,42 @@
                 ['Job #', 'Date', 'Customer', 'Phone', 'Vehicle', 'Service', 'Assigned To', 'Status', 'Est. Hours', 'Actual Hours']
             ];
             jobCards.forEach(job => {
+                const worker = workers.find(w => w.id == job.assignedWorker);
                 jobsData.push([
-                    job.jobNumber, job.date, job.customerName, job.customerPhone,
-                    `${job.vehicleMake} ${job.vehicleModel}`, job.serviceType,
-                    job.assignedWorker, job.status, job.estimatedHours, job.actualHours
+                    `JC${job.id}`, job.date, job.customerName, job.customerPhone,
+                    job.vehicleDetails, job.serviceRequired, worker ? worker.name : 'Unassigned',
+                    job.status, job.estimatedHours, job.actualHours
                 ]);
             });
-            const wsJobs = XLSX.utils.aoa_to_sheet(jobsData);
-            XLSX.utils.book_append_sheet(wb, wsJobs, 'Job Cards');
+            const jobsSheet = XLSX.utils.aoa_to_sheet(jobsData);
+            XLSX.utils.book_append_sheet(wb, jobsSheet, 'Job Cards');
 
             // Workers Sheet
-            const workersData = [
-                ['Name', 'Role', 'Jobs Completed', 'Total Hours', 'Avg Time per Job']
-            ];
-            workers.forEach(w => {
+            const workersData = [['Name', 'Role', 'Jobs Completed', 'Total Hours', 'Avg Hours/Job']];
+            workers.forEach(worker => {
                 workersData.push([
-                    w.name, w.role, w.jobsCompleted, w.totalHours,
-                    w.jobsCompleted > 0 ? (w.totalHours / w.jobsCompleted).toFixed(1) : 0
+                    worker.name, worker.role, worker.jobsCompleted, worker.totalHours,
+                    worker.jobsCompleted > 0 ? (worker.totalHours / worker.jobsCompleted).toFixed(1) : 0
                 ]);
             });
-            const wsWorkers = XLSX.utils.aoa_to_sheet(workersData);
-            XLSX.utils.book_append_sheet(wb, wsWorkers, 'Workers');
+            const workersSheet = XLSX.utils.aoa_to_sheet(workersData);
+            XLSX.utils.book_append_sheet(wb, workersSheet, 'Workers');
 
             // Parts Sheet
-            const partsData = [
-                ['Part Description', 'Job #', 'Vehicle', 'Status', 'Ordered Date', 'Expected Date']
-            ];
-            parts.forEach(p => {
-                partsData.push([p.description, p.jobNumber, p.vehicle, p.status, p.orderedDate || '-', p.expectedDate || '-']);
+            const partsData = [['Part Name', 'Part Number', 'Price', 'Stock Quantity']];
+            parts.forEach(part => {
+                partsData.push([part.partName, part.partNumber, part.partPrice, part.stockQuantity]);
             });
-            const wsParts = XLSX.utils.aoa_to_sheet(partsData);
-            XLSX.utils.book_append_sheet(wb, wsParts, 'Parts');
+            const partsSheet = XLSX.utils.aoa_to_sheet(partsData);
+            XLSX.utils.book_append_sheet(wb, partsSheet, 'Parts Inventory');
 
-            XLSX.writeFile(wb, `NuTech_Full_Export_${Date.now()}.xlsx`);
-            alert('✅ All data exported successfully!');
-        }
+            // Enquiries Sheet
+            const enquiriesSheet = XLSX.utils.json_to_sheet(enquiriesData);
+            XLSX.utils.book_append_sheet(wb, enquiriesSheet, 'Customer Enquiries');
 
-        function clearOldData() {
-            if (confirm('⚠️ This will delete all jobs older than 90 days. Continue?')) {
-                const ninetyDaysAgo = new Date();
-                ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
-
-                jobCards = jobCards.filter(job => new Date(job.date) > ninetyDaysAgo);
-                localStorage.setItem('jobCards', JSON.stringify(jobCards));
-
-                alert('✅ Old data cleared!');
-                loadJobCards();
-            }
+            const fileName = `nutech-workshop-data-${new Date().toISOString().split('T')[0]}.xlsx`;
+            XLSX.writeFile(wb, fileName);
+            alert(`✅ All workshop data exported to ${fileName}`);
         }
     </script>
 </body>
